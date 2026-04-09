@@ -72,6 +72,15 @@ internal/
 migrations/
 ├── 0001_create_tasks.up.sql        - таблица tasks
 └── 0002_create_task_recurrence_rules.up.sql  - таблица task_recurrence_rules
+
+├── screenshots/                            - демонстрационные скриншоты
+├── go.mod                                  - зависимости и имя модуля
+├── go.sum                                  - контрольные суммы зависимостей
+├── Dockerfile                              - инструкция сборки Docker-образа
+├── docker-compose.yml                      - запуск приложения с PostgreSQL
+├── .gitignore                              - исключения для git
+├── .dockerignore                           - исключения для Docker
+└── README.md                               - Вы находитесь здесь :)
 ```
 
 Каждый слой зависит **только от слоёв ниже по иерархии** через интерфейсы. Domain не знает ни о базе данных, ни о HTTP.
