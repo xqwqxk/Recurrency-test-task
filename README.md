@@ -29,56 +29,56 @@
 
 ```
 cmd/api/
-└── main.go                         - точка входа, wire-up зависимостей
+└── main.go                                    - точка входа, wire-up зависимостей
 
 internal/
 ├── domain/
 │   ├── task/
-│   │   ├── task.go                 - доменная модель задачи
-│   │   └── errors.go               - ошибки задачи
+│   │   ├── task.go                            - доменная модель задачи
+│   │   └── errors.go                          - ошибки задачи
 │   └── recurrence/
-│       ├── recurrence.go           - доменная модель, типы, scheduling-логика
-│       ├── errors.go               - доменные ошибки
-│       └── recurrence_test.go      - unit-тесты scheduling
+│       ├── recurrence.go                      - доменная модель, типы, scheduling-логика
+│       ├── errors.go                          - доменные ошибки
+│       └── recurrence_test.go                 - unit-тесты scheduling
 
 ├── usecase/
 │   ├── task/
-│   │   ├── ports.go                - интерфейсы Repository и Usecase
-│   │   ├── service.go              - CRUD-логика задач
-│   │   └── errors.go               - usecase-уровневые ошибки
+│   │   ├── ports.go                           - интерфейсы Repository и Usecase
+│   │   ├── service.go                         - CRUD-логика задач
+│   │   └── errors.go                          - usecase-уровневые ошибки
 │   └── recurrence/
-│       ├── ports.go                - интерфейсы Repository и Usecase
-│       ├── service.go              - бизнес-логика правил
-│       └── errors.go               - usecase-уровневые ошибки
+│       ├── ports.go                           - интерфейсы Repository и Usecase
+│       ├── service.go                         - бизнес-логика правил
+│       └── errors.go                          - usecase-уровневые ошибки
 
 ├── repository/postgres/
-│   ├── task_repository.go          - PostgreSQL CRUD задач
-│   └── recurrence_repository.go    - PostgreSQL CRUD правил
+│   ├── task_repository.go                     - PostgreSQL CRUD задач
+│   └── recurrence_repository.go               - PostgreSQL CRUD правил
 
 ├── transport/http/
-│   ├── router.go                   - регистрация маршрутов
+│   ├── router.go                             - регистрация маршрутов
 │   ├── docs/
-│   │   ├── handler.go              - Swagger UI
-│   │   └── openapi.json            - спецификация OpenAPI 3.0
+│   │   ├── handler.go                        - Swagger UI
+│   │   └── openapi.json                      - спецификация OpenAPI 3.0
 │   └── handlers/
-│       ├── dto.go                  - DTO для задач
-│       ├── task_handler.go         - HTTP-хэндлеры задач
-│       ├── recurrence_dto.go       - DTO для рекуррентности
-│       └── recurrence_handler.go   - HTTP-хэндлеры рекуррентности
+│       ├── dto.go                            - DTO для задач
+│       ├── task_handler.go                   - HTTP-хэндлеры задач
+│       ├── recurrence_dto.go                 - DTO для рекуррентности
+│       └── recurrence_handler.go             - HTTP-хэндлеры рекуррентности
 
 └── infrastructure/postgres/
-    └── pool.go                     - подключение к БД (pgxpool)
+    └── pool.go                               - подключение к БД (pgxpool)
 
 migrations/
-├── 0001_create_tasks.up.sql        - таблица tasks
+├── 0001_create_tasks.up.sql                  - таблица tasks
 └── 0002_create_task_recurrence_rules.up.sql  - таблица task_recurrence_rules
 
-┌── screenshots/                            - демонстрационные скриншоты
-├── go.mod                                  - зависимости и имя модуля
-├── go.sum                                  - контрольные суммы зависимостей
-├── Dockerfile                              - инструкция сборки Docker-образа
-├── docker-compose.yml                      - запуск приложения с PostgreSQL
-└── README.md                               - Вы находитесь здесь :)
+┌── screenshots/                              - демонстрационные скриншоты
+├── go.mod                                    - зависимости и имя модуля
+├── go.sum                                    - контрольные суммы зависимостей
+├── Dockerfile                                - инструкция сборки Docker-образа
+├── docker-compose.yml                        - запуск приложения с PostgreSQL
+└── README.md                                 - Вы находитесь здесь :)
 ```
 
 Каждый слой зависит **только от слоёв ниже по иерархии** через интерфейсы. Domain не знает ни о базе данных, ни о HTTP.
