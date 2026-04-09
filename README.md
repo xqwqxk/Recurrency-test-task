@@ -73,7 +73,7 @@ migrations/
 ├── 0001_create_tasks.up.sql        - таблица tasks
 └── 0002_create_task_recurrence_rules.up.sql  - таблица task_recurrence_rules
 
-┌─ screenshots/                            - демонстрационные скриншоты
+┌── screenshots/                            - демонстрационные скриншоты
 ├── go.mod                                  - зависимости и имя модуля
 ├── go.sum                                  - контрольные суммы зависимостей
 ├── Dockerfile                              - инструкция сборки Docker-образа
